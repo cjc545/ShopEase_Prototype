@@ -1,0 +1,28 @@
+{
+  "name": "sdcd_prototype",
+  "version": "1.0.0",
+  "description": "This is a prototype of a fictional online retailer \"ShopEase\". This is super quick prototype concept for a college module.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esm index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjc545/ShopEase_Prototype.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjc545/ShopEase_Prototype/issues"
+  },
+  "homepage": "https://github.com/cjc545/ShopEase_Prototype#readme",
+  "dependencies": {
+    "better-sqlite3": "^11.9.1",
+    "body-parser": "^2.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  }
+}

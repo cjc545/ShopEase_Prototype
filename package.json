@@ -20,6 +20,7 @@
   "homepage": "https://github.com/cjc545/ShopEase_Prototype#readme",
   "dependencies": {
     "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
     "esm": "^3.2.25",
     "express": "^4.21.2",
     "sqlite3": "^5.1.7"

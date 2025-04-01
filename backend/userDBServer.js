@@ -11,7 +11,7 @@ const db = new sqlite.Database(`./databases/users.db`, sqlite.OPEN_READWRITE, (e
     if(err) return console.error(err);
 })
 
-app.use(cors());
+app.use(cors({origin: "http://localhost:2000"}))
 app.use(bodyParser.json());
 
 

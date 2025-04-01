@@ -4,23 +4,26 @@ const bodyParser = require("body-parser");
 const res = require("express/lib/response");
 const app = express();
 const url = require('url');
+
+const cors = require("cors");
 let sql;
 
-const db = new sqlite.Database(`./databases/products.db`, sqlite.OPEN_READWRITE, (err)=>{
+const db = new sqlite.Database(`./databases/orders.db`, sqlite.OPEN_READWRITE, (err)=>{
     if(err) return console.error(err);
 })
 
 app.use(bodyParser.json());
+app.use(cors({origin: "http://localhost:2000"}))
 
 //post request
 app.post('/orders', (req, res)=>{
     try{
-       const {ProductName, Price} = req.body;
+       const {Product, CustomerEmail} = req.body;
        sql = "INSERT INTO orders(Product, CustomerEmail) VALUES (?,?)"
-       db.run(sql, [ProductName, Price], (err)=>{
+       db.run(sql, [Product, CustomerEmail], (err)=>{
         if (err) return res.json({status: 300, success: false, error: err});
 
-        console.log(`succesful input`, ProductName, Price);
+        console.log(`succesful input`, Product, CustomerEmail);
        });
         res.json({
             status: 200,

@@ -54,7 +54,9 @@ body{
     
 }
 
-.product-container {
+.product-container-case,
+.product-container-rgb,
+.product-container-gpu {
     background: white;
     padding: 20px;
     border-radius: 10px;

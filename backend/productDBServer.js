@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const res = require("express/lib/response");
 const app = express();
 const url = require('url');
+const cors = require("cors");
 let sql;
 
 const db = new sqlite.Database(`./databases/products.db`, sqlite.OPEN_READWRITE, (err)=>{
@@ -11,6 +12,7 @@ const db = new sqlite.Database(`./databases/products.db`, sqlite.OPEN_READWRITE,
 })
 
 app.use(bodyParser.json());
+app.use(cors({origin: "http://localhost:2000"}))
 
 //post request
 app.post('/products', (req, res)=>{

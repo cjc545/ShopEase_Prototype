@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Chatbox</title>
+    <style>
+        body {
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .chatbox {
+            background-color: white;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .messages {
+            height: 200px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .input-area {
+            display: flex;
+        }
+        input {
+            flex: 1;
+            padding: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="back-button" onclick="history.back();">← Back</a>
+    <div class="chatbox">
+        <div class="messages" id="messages"></div>
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let input = document.getElementById("userInput");
+            let messageBox = document.getElementById("messages");
+            
+            if (input.value.trim() !== "") {
+                let userMessage = document.createElement("div");
+                userMessage.textContent = "You: " + input.value;
+                messageBox.appendChild(userMessage);
+                input.value = "";
+                
+                setTimeout(() => {
+                    let botMessage = document.createElement("div");
+                    botMessage.textContent = "Bot: Thank you for chatting with us, a customer rep will be with you shortly.";
+                    messageBox.appendChild(botMessage);
+                    messageBox.scrollTop = messageBox.scrollHeight;
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
